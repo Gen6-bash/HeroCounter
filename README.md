@@ -37,7 +37,7 @@ Because "what gets measured gets done."  Hero Counter helps you track your daily
 
 Hero Counter is built around privacy by design:
 
-- No network permissions (except where explicitly required by user-initiated actions)
+- No network permissions
 - No third-party SDKs, analytics, or advertising libraries
 - No data leaves your device unless you explicitly export it
 - All data is stored locally in a SQLite database via Room
@@ -63,7 +63,8 @@ This app is not available on the Google Play Store. Install via sideloading:
 
 Alternatively, install via ADB:
 ```
-adb install app-debug.apk
+adb install HeroCounter-v1.0pre.apk
+
 ```
 
 ---
