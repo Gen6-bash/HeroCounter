@@ -1,6 +1,6 @@
 # Hero Counter
 
-A private, offline habit and activity tracker for Android. Count anything that matters — push-ups, dog walks, medication doses, glasses of water, or any repeating task — and track your progress over time.
+A private, offline habit and activity tracker for Android. Count anything that matters — push-ups, dog walks, medications, glasses of water, daily Bible reading, prayers, or any repeating task — and track your progress over time.
 
 ---
 
@@ -36,7 +36,7 @@ Hero Counter is built around privacy by design:
 ## Requirements
 
 - Android 8.0 (API 26) or higher
-- No Google Play Services required — works on de-Googled devices (CalyxOS, GrapheneOS, /e/OS, etc.)
+- No Google Play Services required — works on de-Googled devices (Iode OS, CalyxOS, GrapheneOS, /e/OS, Lineage OS,etc.)
 
 ---
 
