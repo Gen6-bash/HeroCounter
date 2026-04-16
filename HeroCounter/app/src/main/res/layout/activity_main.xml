@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@color/bg_primary">
+
+    <!-- LEFT PANEL -->
+    <LinearLayout
+        android:id="@+id/leftPanel"
+        android:layout_width="@dimen/task_panel_width"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/bg_panel">
+
+        <!-- App Name / Logo Block -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="12dp"
+            android:background="@color/bg_panel">
+
+            <ImageView
+                android:id="@+id/ivAppLogo"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/ic_logo_panel"
+                android:scaleType="fitCenter"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HERO"
+                android:textColor="@color/accent_blue"
+                android:textSize="13sp"
+                android:letterSpacing="0.15"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="COUNTER"
+                android:textColor="@color/text_secondary"
+                android:textSize="9sp"
+                android:letterSpacing="0.2"/>
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider"/>
+
+        <!-- Task List -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTasks"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:clipToPadding="false"/>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/divider"/>
+
+        <!-- New Count Button -->
+        <TextView
+            android:id="@+id/btnNewCount"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="+ New Count"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:background="@drawable/btn_new_count"
+            android:padding="8dp"/>
+
+        <!-- Add Missing Counts Button -->
+        <TextView
+            android:id="@+id/btnEditHistory"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:gravity="center"
+            android:text="✏ Add Missing Counts"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"
+            android:background="@color/bg_panel"
+            android:padding="8dp"/>
+
+        <!-- Settings Button -->
+        <TextView
+            android:id="@+id/btnSettings"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:text="⚙ Settings"
+            android:textColor="@color/accent_blue"
+            android:textSize="12sp"
+            android:background="@color/bg_panel"
+            android:padding="8dp"/>
+
+    </LinearLayout>
+
+    <!-- Vertical Divider -->
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/divider"/>
+
+    <!-- RIGHT PANEL -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="16dp"
+        android:background="@color/bg_primary">
+
+        <!-- Spacer -->
+        <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+        <!-- CIRCULAR COUNTER -->
+        <FrameLayout
+            android:layout_width="@dimen/counter_ring_outer"
+            android:layout_height="@dimen/counter_ring_outer"
+            android:layout_gravity="center_horizontal">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/circle_ring_outer"/>
+
+            <View
+                android:layout_width="@dimen/counter_ring_inner"
+                android:layout_height="@dimen/counter_ring_inner"
+                android:layout_gravity="center"
+                android:background="@drawable/circle_ring_inner"/>
+
+            <FrameLayout
+                android:id="@+id/counterButton"
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center"
+                android:background="@drawable/circle_counter_btn"
+                android:clickable="true"
+                android:focusable="true">
+
+                <TextView
+                    android:id="@+id/tvCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="0"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/counter_text_size"
+                    android:textStyle="bold"/>
+            </FrameLayout>
+        </FrameLayout>
+
+        <!-- Mode buttons row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/btnMinus"
+                android:layout_width="@dimen/mode_btn_size"
+                android:layout_height="@dimen/mode_btn_size"
+                android:gravity="center"
+                android:text="−"
+                android:textSize="24sp"
+                android:textColor="@color/text_primary"
+                android:background="@drawable/circle_btn_minus"
+                android:clickable="true"
+                android:focusable="true"/>
+
+            <TextView
+                android:id="@+id/tvMode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="+ ADD"
+                android:textColor="@color/accent_blue"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"/>
+
+            <TextView
+                android:id="@+id/btnPlus"
+                android:layout_width="@dimen/mode_btn_size"
+                android:layout_height="@dimen/mode_btn_size"
+                android:gravity="center"
+                android:text="+"
+                android:textSize="24sp"
+                android:textColor="@color/text_primary"
+                android:background="@drawable/circle_btn_plus"
+                android:clickable="true"
+                android:focusable="true"/>
+        </LinearLayout>
+
+        <!-- Task Name -->
+        <TextView
+            android:id="@+id/tvTaskName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Select a task"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/task_name_size"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <!-- Stats Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_surface"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="10dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Today\'s Total"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/stat_label_size"/>
+                <TextView
+                    android:id="@+id/tvToday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:textColor="@color/accent_blue"
+                    android:textSize="@dimen/stat_value_size"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="10dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Yesterday\'s Total"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/stat_label_size"/>
+                <TextView
+                    android:id="@+id/tvYesterday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/stat_value_size"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Weekly Total"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/stat_label_size"/>
+                <TextView
+                    android:id="@+id/tvWeekly"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="@dimen/stat_value_size"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- View All Statistics Button -->
+        <TextView
+            android:id="@+id/btnViewStats"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:text="View All Statistics"
+            android:textColor="@color/text_primary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="@drawable/btn_statistics"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <!-- Spacer -->
+        <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</LinearLayout>

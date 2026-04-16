@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Enable reminder toggle row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="14dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="REMINDER"
+                android:textColor="@color/accent_blue"
+                android:textSize="11sp"
+                android:letterSpacing="0.08"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Push notification to log progress"
+                android:textColor="@color/text_muted"
+                android:textSize="11sp"/>
+        </LinearLayout>
+
+        <Switch
+            android:id="@+id/switchReminder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:thumbTint="@color/accent_blue"
+            android:trackTint="@color/bg_surface"/>
+    </LinearLayout>
+
+    <!-- Expandable reminder options -->
+    <LinearLayout
+        android:id="@+id/reminderOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- Time picker row -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TIME"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"
+            android:letterSpacing="0.08"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/input_bg"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/timePickerRow">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Tap to set time"
+                android:textColor="@color/text_muted"
+                android:textSize="13sp"/>
+
+            <TextView
+                android:id="@+id/tvSelectedTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9:00 AM"
+                android:textColor="@color/accent_blue"
+                android:textSize="15sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!-- Days of week -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DAYS"
+            android:textColor="@color/text_secondary"
+            android:textSize="11sp"
+            android:letterSpacing="0.08"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView android:id="@+id/dayMon"
+                android:layout_width="0dp" android:layout_height="36dp"
+                android:layout_weight="1" android:gravity="center"
+                android:text="M" android:textSize="12sp"
+                android:background="@drawable/day_chip_selected"
+                android:textColor="@color/text_primary"
+                android:layout_marginEnd="3dp"
+                android:clickable="true" android:focusable="true"/>
+
+            <TextView android:id="@+id/dayTue"
+                android:layout_width="0dp" android:layout_height="36dp"
+                android:layout_weight="1" android:gravity="center"
+                android:text="T" android:textSize="12sp"
+                android:background="@drawable/day_chip_selected"
+                android:textColor="@color/text_primary"
+                android:layout_marginEnd="3dp"
+                android:clickable="true" android:focusable="true"/>
+
+            <TextView android:id="@+id/dayWed"
+                android:layout_width="0dp" android:layout_height="36dp"
+                android:layout_weight="1" android:gravity="center"
+                android:text="W" android:textSize="12sp"
+                android:background="@drawable/day_chip_selected"
+                android:textColor="@color/text_primary"
+                android:layout_marginEnd="3dp"
+                android:clickable="true" android:focusable="true"/>
+
+            <TextView android:id="@+id/dayThu"
+                android:layout_width="0dp" android:layout_height="36dp"
+                android:layout_weight="1" android:gravity="center"
+                android:text="T" android:textSize="12sp"
+                android:background="@drawable/day_chip_selected"
+                android:textColor="@color/text_primary"
+                android:layout_marginEnd="3dp"
+                android:clickable="true" android:focusable="true"/>
+
+            <TextView android:id="@+id/dayFri"
+                android:layout_width="0dp" android:layout_height="36dp"
+                android:layout_weight="1" android:gravity="center"
+                android:text="F" android:textSize="12sp"
+                android:background="@drawable/day_chip_selected"
+                android:textColor="@color/text_primary"
+                android:layout_marginEnd="3dp"
+                android:clickable="true" android:focusable="true"/>
+
+            <TextView android:id="@+id/daySat"
+                android:layout_width="0dp" android:layout_height="36dp"
+                android:layout_weight="1" android:gravity="center"
+                android:text="S" android:textSize="12sp"
+                android:background="@drawable/day_chip_unselected"
+                android:textColor="@color/text_muted"
+                android:layout_marginEnd="3dp"
+                android:clickable="true" android:focusable="true"/>
+
+            <TextView android:id="@+id/daySun"
+                android:layout_width="0dp" android:layout_height="36dp"
+                android:layout_weight="1" android:gravity="center"
+                android:text="S" android:textSize="12sp"
+                android:background="@drawable/day_chip_unselected"
+                android:textColor="@color/text_muted"
+                android:clickable="true" android:focusable="true"/>
+        </LinearLayout>
+
+        <View android:layout_width="0dp" android:layout_height="12dp"/>
+    </LinearLayout>
+
+</LinearLayout>
