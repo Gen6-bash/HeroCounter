@@ -2,12 +2,6 @@
 
 A private, offline habit and activity tracker for Android. Count anything that matters — push-ups, dog walks, medications, glasses of water, daily Bible reading, prayers, or any repeating task — and track your progress over time.
 
-<img width="1080" height="2400" alt="Screenshot_20260416_115502" src="https://github.com/user-attachments/assets/f48456a2-bcde-4244-b8ea-0a9824539ccb" />
-<img width="1080" height="2400" alt="Screenshot_20260416_115542" src="https://github.com/user-attachments/assets/c0ad3c8f-7fdb-4e2d-bc36-9fb65b62a69b" />
-<img width="1080" height="2400" alt="Screenshot_20260416_115616" src="https://github.com/user-attachments/assets/3ce2d113-c3eb-44c1-9c19-257f139061fe" />
-<img width="1080" height="2400" alt="Screenshot_20260416_115655" src="https://github.com/user-attachments/assets/e2c8ab75-7bf6-4abe-8fb8-8f01b752d296" />
-<img width="1080" height="2400" alt="Screenshot_20260416_115637" src="https://github.com/user-attachments/assets/e8e25e9a-be02-4a85-9333-060a61980b74" />
-
 ---
 
 ## Screenshots
