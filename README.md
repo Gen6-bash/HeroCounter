@@ -1,6 +1,6 @@
 # Hero Counter
 
-A private, offline habit and activity tracker for Android. Count anything that matters — push-ups, dog walks, medications, glasses of water, daily Bible reading, prayers, or any repeating task — and track your progress over time.
+Because "what gets measured gets done."  Hero Counter helps you track your daily habits and progress to help make you a better version of yourself for self-improvement and to help others.  Hero Counter is a private, offline habit and activity tracker for Android. Count anything that matters — push-ups, dog walks, medications, glasses of water, daily Bible reading, prayers, or any repeating task — and track your progress over time.
 
 ---
 
