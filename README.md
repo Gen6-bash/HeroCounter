@@ -35,7 +35,7 @@ Because "what gets measured gets done."  Hero Counter helps you track of your da
 
 ## Privacy
 
-Hero Counter is built around privacy by design:
+Hero Counter is built on by design:
 
 - No network permissions
 - No third-party SDKs, analytics, or advertising libraries
