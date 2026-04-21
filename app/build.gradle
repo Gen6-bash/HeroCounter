@@ -11,16 +11,23 @@ android {
         minSdk 26
         targetSdk 34
         versionCode 2
-        versionName "1.1"
+        versionName "1.1.1"
     }
 
-    signingConfigs {
-        release {
-            // These are read from gradle.properties — never hardcode passwords here
-            storeFile file(KEYSTORE_PATH)
-            storePassword KEYSTORE_PASSWORD
-            keyAlias KEY_ALIAS
-            keyPassword KEY_PASSWORD
+    // Only configure release signing if keystore properties are present
+    // This allows F-Droid to build without a keystore (they sign with their own key)
+    if (project.hasProperty('KEYSTORE_PATH') &&
+        project.hasProperty('KEYSTORE_PASSWORD') &&
+        project.hasProperty('KEY_ALIAS') &&
+        project.hasProperty('KEY_PASSWORD')) {
+
+        signingConfigs {
+            release {
+                storeFile file(KEYSTORE_PATH)
+                storePassword KEYSTORE_PASSWORD
+                keyAlias KEY_ALIAS
+                keyPassword KEY_PASSWORD
+            }
         }
     }
 
@@ -30,7 +37,13 @@ android {
         }
         release {
             minifyEnabled false
-            signingConfig signingConfigs.release
+            // Only apply signing config if it was configured above
+            if (project.hasProperty('KEYSTORE_PATH') &&
+                project.hasProperty('KEYSTORE_PASSWORD') &&
+                project.hasProperty('KEY_ALIAS') &&
+                project.hasProperty('KEY_PASSWORD')) {
+                signingConfig signingConfigs.release
+            }
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
