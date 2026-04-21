@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hero Counter</string>
+    <string name="today_total">Today\'s Total</string>
+    <string name="yesterday_total">Yesterday\'s Total</string>
+    <string name="weekly_total">Weekly Total</string>
+    <string name="view_all_statistics">View All Statistics</string>
+    <string name="settings">Settings</string>
+    <string name="add_task">Add Task</string>
+    <string name="edit_task">Edit Task</string>
+    <string name="delete_task">Delete Task</string>
+    <string name="task_name_hint">Enter task name…</string>
+    <string name="no_tasks">Tap Settings to add your first task</string>
+    <string name="export_csv">Export CSV</string>
+    <string name="select_tasks_export">Select tasks to export</string>
+    <string name="export_selected">Export Selected</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="confirm_delete">Delete this task and all its data?</string>
+    <string name="mode_add">+ ADD</string>
+    <string name="mode_subtract">− SUB</string>
+    <string name="daily">Daily</string>
+    <string name="weekly">Weekly</string>
+    <string name="monthly">Monthly</string>
+    <string name="yearly">Yearly</string>
+    <string name="no_data">No data yet</string>
+    <string name="file_shared">CSV file ready to share</string>
+</resources>

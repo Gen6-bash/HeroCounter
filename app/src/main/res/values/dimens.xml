@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="task_panel_width">140dp</dimen>
+    <dimen name="counter_size">220dp</dimen>
+    <dimen name="counter_ring_outer">220dp</dimen>
+    <dimen name="counter_ring_inner">170dp</dimen>
+    <dimen name="counter_text_size">56sp</dimen>
+    <dimen name="task_name_size">20sp</dimen>
+    <dimen name="stat_label_size">12sp</dimen>
+    <dimen name="stat_value_size">18sp</dimen>
+    <dimen name="mode_btn_size">52dp</dimen>
+    <dimen name="padding_standard">16dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="corner_radius">12dp</dimen>
+</resources>

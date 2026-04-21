@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Background layers -->
+    <color name="bg_primary">#1E2128</color>
+    <color name="bg_secondary">#252A33</color>
+    <color name="bg_surface">#2D3340</color>
+    <color name="bg_panel">#1A1E26</color>
+
+    <!-- Accents -->
+    <color name="accent_blue">#4A90D9</color>
+    <color name="accent_blue_dark">#2E6EAF</color>
+    <color name="accent_blue_light">#6AABF0</color>
+
+    <!-- Text -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#B0B8C8</color>
+    <color name="text_muted">#6B7585</color>
+
+    <!-- Counter ring -->
+    <color name="ring_outer">#2D3340</color>
+    <color name="ring_inner">#353C4A</color>
+    <color name="ring_glow">#4A90D9</color>
+
+    <!-- UI elements -->
+    <color name="divider">#333A47</color>
+    <color name="task_selected">#2E3D55</color>
+    <color name="task_normal">#252A33</color>
+    <color name="btn_minus">#C0392B</color>
+    <color name="btn_plus">#27AE60</color>
+    <color name="btn_statistics">#4A90D9</color>
+    <color name="btn_settings">#2D3340</color>
+    <!-- Launcher icon background (gold) -->
+    <color name="ic_launcher_background">#F5A800</color>
+</resources>
