@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_primary">
+
+    <!-- Toolbar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:background="@color/bg_panel">
+
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="← Back"
+            android:textColor="@color/accent_blue"
+            android:textSize="13sp"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"/>
+
+        <TextView
+            android:id="@+id/tvStatsTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Statistics"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/btnEditHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add/Edit Data"
+            android:textColor="@color/accent_blue"
+            android:textSize="12sp"
+            android:padding="8dp"
+            android:clickable="true"
+            android:focusable="true"/>
+
+
+    </LinearLayout>
+
+    <!-- Period Tabs -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:background="@color/bg_surface"
+        android:padding="6dp">
+
+        <TextView android:id="@+id/tabDaily"
+            android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:gravity="center" android:text="Daily"
+            android:textSize="13sp" android:background="@drawable/tab_selected"
+            android:textColor="@color/text_primary" android:textStyle="bold"/>
+        <TextView android:id="@+id/tabWeekly"
+            android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:gravity="center" android:text="Weekly"
+            android:textSize="13sp" android:background="@drawable/tab_unselected"
+            android:textColor="@color/text_secondary"/>
+        <TextView android:id="@+id/tabMonthly"
+            android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:gravity="center" android:text="Monthly"
+            android:textSize="13sp" android:background="@drawable/tab_unselected"
+            android:textColor="@color/text_secondary"/>
+        <TextView android:id="@+id/tabYearly"
+            android:layout_width="0dp" android:layout_height="match_parent"
+            android:layout_weight="1" android:gravity="center" android:text="Yearly"
+            android:textSize="13sp" android:background="@drawable/tab_unselected"
+            android:textColor="@color/text_secondary"/>
+    </LinearLayout>
+
+    <!-- Scrollable content -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Bar Chart -->
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barChart"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/rounded_surface"/>
+
+            <!-- Summary Cards -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="12dp">
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:gravity="center"
+                    android:background="@drawable/rounded_surface" android:padding="12dp"
+                    android:layout_marginEnd="6dp">
+                    <TextView android:id="@+id/tvSummaryLabel"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Period Total" android:textColor="@color/text_secondary" android:textSize="11sp"/>
+                    <TextView android:id="@+id/tvSummaryTotal"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="—" android:textColor="@color/accent_blue"
+                        android:textSize="24sp" android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:orientation="vertical" android:gravity="center"
+                    android:background="@drawable/rounded_surface" android:padding="12dp"
+                    android:layout_marginStart="6dp">
+                    <TextView android:id="@+id/tvAvgLabel"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Period Average" android:textColor="@color/text_secondary" android:textSize="11sp"/>
+                    <TextView android:id="@+id/tvAvgValue"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="—" android:textColor="@color/text_primary"
+                        android:textSize="24sp" android:textStyle="bold"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Projections -->
+            <LinearLayout
+                android:id="@+id/projectionContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="12dp"
+                android:visibility="gone"/>
+
+            <!-- Data Table -->
+            <LinearLayout
+                android:id="@+id/tableContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_surface"
+                android:padding="12dp"
+                android:layout_marginBottom="16dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
