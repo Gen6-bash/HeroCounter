@@ -110,6 +110,7 @@ Go to **Settings → Export data to CSV** to export your data. You will be promp
 Go to **Settings → Import data from CSV** to restore from a previous export. The app will:
 - Create any counts that don't exist yet
 - Import all historical entries
+- Import all reminders associated with entries
 - Skip any duplicate entries safely
 
 ### Database
@@ -120,6 +121,16 @@ Data is stored in a Room/SQLite database at the app's private storage location. 
 ## Version
 
 **Version 1.0** — Initial release
+**Version 1.1** — Bug fixes and improvments
+
+---
+
+### Changelog
+
+- Version 1.1 - Added the ability to reorder counts within settings menu.
+- Version 1.1 - Added a feature where users can send a share link for the app....help spread the word!
+- Version 1.1 - Fixed bug where reminders were not importing from CSV.
+- Version 1.1 - Fixed bug where after deleting a count, the reminders remained active.
 
 ---
 
