@@ -54,18 +54,11 @@ Hero Counter is built on by design:
 
 ## Installation
 
-This app is not available on the Google Play Store. Install via sideloading:
+This app is not available on the Google Play Store, inclusion on FDroid is coming soon.  Install via sideloading:
 
-1. Build the APK in Android Studio: **Build → Build Bundle(s) / APK(s) → Build APK(s)**
-2. Transfer `app-debug.apk` to your Android device
-3. Enable **Install Unknown Apps** for your file manager in device Settings
-4. Tap the APK to install
-
-Alternatively, install via ADB:
-```
-adb install HeroCounter-v1.0pre.apk
-
-```
+1. Enable **Install Unknown Apps** for your file manager in device Settings
+2. Download the APK from the "Releases" section in this repository
+3. Tap the APK to install
 
 ---
 
