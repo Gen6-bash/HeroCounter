@@ -1,6 +1,6 @@
 # Hero Counter
 
-Because "what gets measured gets done."   Hero Counter is a private, offline habit and activity tracker for Android.  Hero Counter helps you track of your daily habits and progress to make you be a better version of yourself; for self-improvement and to help others.  Count anything that matters — push-ups, dog walks, medications, glasses of water, daily Bible reading, prayers, or any other repeating task — and track your progress over time.
+Because "what gets measured gets done."   Hero Counter is a private, offline habit and activity tracker for Android.  Hero Counter helps you track of your daily habits and progress to make you be a better version of yourself; for self-improvement and to help others.  Count anything that matters — push-ups, dog walks, medications, glasses of water, daily Bible reading, prayers, or any other repeating task — and track your progress over time.  The features in Hero Counter are not novel.......there are many other counters out there.  None, however, did everything that I wanted it to do, so Hero Counter was created.  I hope you find it useful, unintrusive, and respectful of your digital privacy.
 
 ---
 
@@ -114,6 +114,7 @@ Data is stored in a Room/SQLite database at the app's private storage location. 
 ## Version
 
 **Version 1.0** — Initial release
+
 **Version 1.1** — Bug fixes and improvments
 
 ---
@@ -129,4 +130,4 @@ Data is stored in a Room/SQLite database at the app's private storage location. 
 
 ## License
 
-This project is private and not licensed for public distribution or modification without permission.
+This project is free and open-source and is licensed for public distribution and/or modification.
