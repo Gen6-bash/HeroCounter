@@ -1,6 +1,6 @@
 # Hero Counter
 
-Because "what gets measured gets done."  Hero Counter helps you track of your daily habits and progress to make you be a better version of yourself for self-improvement and to help others.  Hero Counter is a private, offline habit and activity tracker for Android. Count anything that matters — push-ups, dog walks, medications, glasses of water, daily Bible reading, prayers, or any other repeating task — and track your progress over time.
+Because "what gets measured gets done."   Hero Counter is a private, offline habit and activity tracker for Android.  Hero Counter helps you track of your daily habits and progress to make you be a better version of yourself; for self-improvement and to help others.  Count anything that matters — push-ups, dog walks, medications, glasses of water, daily Bible reading, prayers, or any other repeating task — and track your progress over time.  The features in Hero Counter are not novel.......there are many other counters out there.  None, however, did everything that I wanted it to do, so Hero Counter was created.  I hope you find it useful, unintrusive, and respectful of your digital privacy.
 
 ---
 
@@ -54,18 +54,11 @@ Hero Counter is built on by design:
 
 ## Installation
 
-This app is not available on the Google Play Store. Install via sideloading:
+This app is not available on the Google Play Store, inclusion on FDroid is coming soon.  Install via sideloading:
 
-1. Build the APK in Android Studio: **Build → Build Bundle(s) / APK(s) → Build APK(s)**
-2. Transfer `app-debug.apk` to your Android device
-3. Enable **Install Unknown Apps** for your file manager in device Settings
-4. Tap the APK to install
-
-Alternatively, install via ADB:
-```
-adb install HeroCounter-v1.0pre.apk
-
-```
+1. Enable **Install Unknown Apps** for your file manager in device Settings
+2. Download the APK from the "Releases" section in this repository
+3. Tap the APK to install
 
 ---
 
@@ -110,6 +103,7 @@ Go to **Settings → Export data to CSV** to export your data. You will be promp
 Go to **Settings → Import data from CSV** to restore from a previous export. The app will:
 - Create any counts that don't exist yet
 - Import all historical entries
+- Import all reminders associated with entries
 - Skip any duplicate entries safely
 
 ### Database
@@ -121,8 +115,19 @@ Data is stored in a Room/SQLite database at the app's private storage location. 
 
 **Version 1.0** — Initial release
 
+**Version 1.1** — Bug fixes and improvments
+
+---
+
+### Changelog
+
+- Version 1.1 - Added the ability to reorder counts within settings menu.
+- Version 1.1 - Added a feature where users can send a share link for the app....help spread the word!
+- Version 1.1 - Fixed bug where reminders were not importing from CSV.
+- Version 1.1 - Fixed bug where after deleting a count, the reminders remained active.
+
 ---
 
 ## License
 
-This project is private and not licensed for public distribution or modification without permission.
+This project is free and open-source and is licensed for public distribution and/or modification.
