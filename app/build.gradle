@@ -14,6 +14,13 @@ android {
         versionName "1.1.1"
     }
 
+    dependenciesInfo {
+        // Disables dependency metadata when building APKs.
+        includeInApk = false
+        // Disables dependency metadata when building Android App Bundles.
+        includeInBundle = false
+    }
+
     // Only configure release signing if keystore properties are present
     // This allows F-Droid to build without a keystore (they sign with their own key)
     if (project.hasProperty('KEYSTORE_PATH') &&
@@ -37,7 +44,6 @@ android {
         }
         release {
             minifyEnabled false
-            // Only apply signing config if it was configured above
             if (project.hasProperty('KEYSTORE_PATH') &&
                 project.hasProperty('KEYSTORE_PASSWORD') &&
                 project.hasProperty('KEY_ALIAS') &&
