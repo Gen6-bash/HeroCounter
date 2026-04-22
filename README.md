@@ -20,7 +20,7 @@ Because "what gets measured gets done."   Hero Counter is a private, offline hab
 
 - **Simple tap-to-count interface** — large circular counter with add and subtract modes
 - **Multiple counts** — track unlimited named activities simultaneously
-- **Daily goals** — set daily, weekly, monthly, and yearly targets per count
+- **Goals** — set daily, weekly, monthly, and yearly targets per count
 - **Statistics** — view bar charts and totals broken down by day, week, month, and year
 - **Projected totals** — see where you are headed based on your current pace
 - **Goal celebration** — fireworks animation plays when you hit your daily goal
@@ -41,7 +41,7 @@ Hero Counter is built on by design:
 - No third-party SDKs, analytics, or advertising libraries
 - No data leaves your device unless you explicitly export it
 - All data is stored locally in a SQLite database via Room
-- CSV exports are unencrypted — the app warns you before completing any export
+- CSV exports are **unencrypted** — the app warns you before completing any export
 
 ---
 
@@ -54,7 +54,7 @@ Hero Counter is built on by design:
 
 ## Installation
 
-This app is not available on the Google Play Store, inclusion on FDroid is coming soon.  Install via sideloading:
+This app is not available on the Google Play Store, inclusion on F-Droid is coming soon.  Install via sideloading:
 
 1. Enable **Install Unknown Apps** for your file manager in device Settings
 2. Download the APK from the "Releases" section in this repository
@@ -116,6 +116,8 @@ Data is stored in a Room/SQLite database at the app's private storage location. 
 **Version 1.0** — Initial release
 
 **Version 1.1** — Bug fixes and improvments
+
+**Version 1.1.1** - App metadata updated for inclusion in F-Droid
 
 ---
 
