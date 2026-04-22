@@ -35,7 +35,7 @@ Because "what gets measured gets done."   Hero Counter is a private, offline hab
 
 ## Privacy
 
-Hero Counter is built on by design:
+Hero Counter is built to respect your digital privacy by design:
 
 - No network permissions
 - No third-party SDKs, analytics, or advertising libraries
