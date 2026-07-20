@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import java.util.Calendar;
+import java.util.concurrent.Executors;
 
 /**
  * Fires at midnight every day to reset the on-screen counter display.
@@ -27,6 +28,31 @@ public class MidnightResetReceiver extends BroadcastReceiver {
 
         // Re-schedule for the next midnight
         scheduleMidnightAlarm(context);
+
+        // AlarmManager alarms are cleared on reboot. The midnight alarm is re-armed
+        // above; on BOOT_COMPLETED we must also re-arm every task's reminder alarm,
+        // otherwise reminders silently stop firing until each task is edited again.
+        if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
+            rescheduleAllReminders(context);
+        }
+    }
+
+    private void rescheduleAllReminders(Context context) {
+        // DB access must run off the main thread; goAsync keeps the receiver alive
+        // long enough for the background work to finish.
+        final PendingResult pending = goAsync();
+        Executors.newSingleThreadExecutor().execute(() -> {
+            try {
+                AppDatabase db = AppDatabase.getInstance(context);
+                for (Task task : db.taskDao().getAllTasks()) {
+                    if (task.reminderEnabled) {
+                        ReminderManager.scheduleReminder(context, task);
+                    }
+                }
+            } finally {
+                pending.finish();
+            }
+        });
     }
 
     static void scheduleMidnightAlarm(Context context) {

@@ -73,7 +73,14 @@ public class EditHistoryActivity extends AppCompatActivity {
         findViewById(R.id.btnSetExact).setOnClickListener(v -> {
             String val = etExactTotal.getText().toString().trim();
             if (val.isEmpty()) { etExactTotal.setError("Enter a value"); return; }
-            setExactTotal(Integer.parseInt(val));
+            int target;
+            try {
+                target = Integer.parseInt(val);
+            } catch (NumberFormatException e) {
+                etExactTotal.setError("Enter a whole number");
+                return;
+            }
+            setExactTotal(target);
         });
 
         refreshDateDisplay();

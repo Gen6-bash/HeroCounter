@@ -98,9 +98,13 @@ public class MainActivity extends AppCompatActivity {
                     onMidnightReset();
             }
         };
-        registerReceiver(midnightReceiver,
+        // ContextCompat handles the RECEIVER_NOT_EXPORTED flag across API levels.
+        // The raw 3-arg Context.registerReceiver(receiver, filter, int) overload and the
+        // RECEIVER_NOT_EXPORTED constant only exist on API 33+, so calling them directly
+        // crashes with NoSuchMethodError on Android 8–12 (this app's minSdk is 26).
+        ContextCompat.registerReceiver(this, midnightReceiver,
                 new IntentFilter(MidnightResetReceiver.ACTION_MIDNIGHT_RESET),
-                Context.RECEIVER_NOT_EXPORTED);
+                ContextCompat.RECEIVER_NOT_EXPORTED);
     }
 
     private void onMidnightReset() {

@@ -1,24 +1,17 @@
 package com.herocounter.app;
 
 import android.app.Dialog;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.content.res.ColorStateList;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.components.XAxis;
@@ -29,9 +22,6 @@ import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 import com.github.mikephil.charting.formatter.ValueFormatter;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -301,7 +291,13 @@ public class StatisticsActivity extends AppCompatActivity {
                 etNewTotal.setError("Enter a value");
                 return;
             }
-            int newTotal = Integer.parseInt(newTotalStr);
+            int newTotal;
+            try {
+                newTotal = Integer.parseInt(newTotalStr);
+            } catch (NumberFormatException e) {
+                etNewTotal.setError("Enter a whole number");
+                return;
+            }
             String dayKey = dayFmt.format(editCalendar.getTime());
             long ts = editCalendar.getTimeInMillis();
 
@@ -502,125 +498,6 @@ public class StatisticsActivity extends AppCompatActivity {
             return mo[Integer.parseInt(p[1])];
         }
         return period;
-    }
-
-    // ── CSV Export ────────────────────────────────────────────────────────────
-
-    private void showExportDialog() {
-        executor.execute(() -> {
-            List<Task> allTasks = db.taskDao().getAllTasks();
-            runOnUiThread(() -> {
-                if (allTasks.isEmpty()) { Toast.makeText(this, "No tasks", Toast.LENGTH_SHORT).show(); return; }
-
-                Dialog dialog = new Dialog(this);
-                dialog.requestWindowFeature(android.view.Window.FEATURE_NO_TITLE);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-                LinearLayout root = new LinearLayout(this);
-                root.setOrientation(LinearLayout.VERTICAL);
-                root.setBackground(getDrawable(R.drawable.rounded_surface));
-                root.setPadding(24, 24, 24, 24);
-
-                TextView title = new TextView(this);
-                title.setText("Select Tasks to Export");
-                title.setTextColor(getColor(R.color.text_primary));
-                title.setTextSize(17f);
-                title.setTypeface(null, android.graphics.Typeface.BOLD);
-                title.setPadding(0, 0, 0, 20);
-                root.addView(title);
-
-                List<CheckBox> cbs = new ArrayList<>();
-                for (Task t : allTasks) {
-                    CheckBox cb = new CheckBox(this);
-                    cb.setText(t.name);
-                    cb.setTextColor(getColor(R.color.text_primary));
-                    cb.setTextSize(14f);
-                    cb.setButtonTintList(android.content.res.ColorStateList.valueOf(getColor(R.color.accent_blue)));
-                    cb.setChecked(t.id == taskId);
-                    cb.setPadding(0, 8, 0, 8);
-                    root.addView(cb);
-                    cbs.add(cb);
-                }
-
-                LinearLayout btns = new LinearLayout(this);
-                btns.setOrientation(LinearLayout.HORIZONTAL);
-                LinearLayout.LayoutParams blp = new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                blp.setMargins(0, 20, 0, 0);
-                btns.setLayoutParams(blp);
-
-                TextView btnC = new TextView(this);
-                btnC.setLayoutParams(new LinearLayout.LayoutParams(0, 44, 1f));
-                btnC.setGravity(Gravity.CENTER);
-                btnC.setText("CANCEL");
-                btnC.setTextColor(getColor(R.color.text_secondary));
-                btnC.setTextSize(13f);
-                btnC.setBackground(getDrawable(R.drawable.btn_dialog_cancel));
-                ((LinearLayout.LayoutParams)btnC.getLayoutParams()).setMarginEnd(8);
-
-                TextView btnE = new TextView(this);
-                btnE.setLayoutParams(new LinearLayout.LayoutParams(0, 44, 1f));
-                btnE.setGravity(Gravity.CENTER);
-                btnE.setText("EXPORT");
-                btnE.setTextColor(getColor(R.color.text_primary));
-                btnE.setTextSize(13f);
-                btnE.setBackground(getDrawable(R.drawable.btn_dialog_save));
-
-                btns.addView(btnC); btns.addView(btnE);
-                root.addView(btns);
-                dialog.setContentView(root);
-                dialog.getWindow().setLayout(
-                        (int)(getResources().getDisplayMetrics().widthPixels * 0.85f),
-                        ViewGroup.LayoutParams.WRAP_CONTENT);
-
-                btnC.setOnClickListener(v -> dialog.dismiss());
-                btnE.setOnClickListener(v -> {
-                    List<Task> sel = new ArrayList<>();
-                    for (int i = 0; i < cbs.size(); i++) if (cbs.get(i).isChecked()) sel.add(allTasks.get(i));
-                    if (sel.isEmpty()) { Toast.makeText(this, "Select at least one", Toast.LENGTH_SHORT).show(); return; }
-                    dialog.dismiss();
-                    exportCsv(sel);
-                });
-                dialog.show();
-            });
-        });
-    }
-
-    private void exportCsv(List<Task> selected) {
-        executor.execute(() -> {
-            try {
-                File dir = new File(getCacheDir(), "exports");
-                if (!dir.exists()) dir.mkdirs();
-                File f = new File(dir, "HeroCounter_export.csv");
-                FileWriter w = new FileWriter(f);
-                w.append("Task,Date,Week,Month,Year,Delta,Timestamp\n");
-                for (Task t : selected) {
-                    for (CountEntry e : db.countEntryDao().getAllEntriesForTask(t.id)) {
-                        w.append(esc(t.name)).append(",")
-                         .append(e.dateDay).append(",").append(e.dateWeek).append(",")
-                         .append(e.dateMonth).append(",").append(e.dateYear).append(",")
-                         .append(String.valueOf(e.delta)).append(",")
-                         .append(String.valueOf(e.timestamp)).append("\n");
-                    }
-                }
-                w.flush(); w.close();
-                Uri uri = FileProvider.getUriForFile(this, "com.herocounter.app.fileprovider", f);
-                Intent si = new Intent(Intent.ACTION_SEND);
-                si.setType("text/csv");
-                si.putExtra(Intent.EXTRA_STREAM, uri);
-                si.putExtra(Intent.EXTRA_SUBJECT, "Hero Counter Export");
-                si.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                runOnUiThread(() -> startActivity(Intent.createChooser(si, "Share CSV via…")));
-            } catch (IOException e) {
-                runOnUiThread(() -> Toast.makeText(this, "Export failed: " + e.getMessage(), Toast.LENGTH_LONG).show());
-            }
-        });
-    }
-
-    private String esc(String v) {
-        if (v.contains(",") || v.contains("\"") || v.contains("\n"))
-            return "\"" + v.replace("\"", "\"\"") + "\"";
-        return v;
     }
 
     @Override protected void onDestroy() { super.onDestroy(); executor.shutdown(); }
